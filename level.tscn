@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5n4oq18hw6kl"]
+
+[ext_resource type="PackedScene" uid="uid://ik4le8kpl2re" path="res://background.tscn" id="1_jyc5b"]
+[ext_resource type="PackedScene" uid="uid://befv1fmvfapp1" path="res://player.tscn" id="2_s6xqu"]
+[ext_resource type="PackedScene" uid="uid://6llgjtdg5rj3" path="res://meteor.tscn" id="3_quepv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6qgo"]
+size = Vector2(100, 720)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t00jn"]
+size = Vector2(1198, 88)
+
+[node name="Level" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_jyc5b")]
+
+[node name="Player" parent="." instance=ExtResource("2_s6xqu")]
+position = Vector2(626, 398)
+
+[node name="Meteor" parent="." instance=ExtResource("3_quepv")]
+position = Vector2(258, 336)
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D"]
+position = Vector2(1203, 314)
+shape = SubResource("RectangleShape2D_e6qgo")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2"]
+position = Vector2(-51, 326)
+shape = SubResource("RectangleShape2D_e6qgo")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3"]
+position = Vector2(575, -45)
+shape = SubResource("RectangleShape2D_t00jn")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
+position = Vector2(589, 692)
+shape = SubResource("RectangleShape2D_t00jn")
