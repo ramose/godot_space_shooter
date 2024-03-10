@@ -1,15 +1,9 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var meteor_scene : PackedScene = load("res://scenes/meteor.tscn")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_timer_timeout():
-	print('meteor') # Replace with function body.
+func _on_meteor_timer_timeout():
+	var meteor = meteor_scene.instantiate()
+	
+	$Meteors.add_child(meteor)
