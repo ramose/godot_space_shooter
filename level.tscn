@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5n4oq18hw6kl"]
+[gd_scene load_steps=7 format=3 uid="uid://c5n4oq18hw6kl"]
 
+[ext_resource type="Script" path="res://level.gd" id="1_j6dve"]
 [ext_resource type="PackedScene" uid="uid://ik4le8kpl2re" path="res://background.tscn" id="1_jyc5b"]
 [ext_resource type="PackedScene" uid="uid://befv1fmvfapp1" path="res://player.tscn" id="2_s6xqu"]
 [ext_resource type="PackedScene" uid="uid://6llgjtdg5rj3" path="res://meteor.tscn" id="3_quepv"]
@@ -11,6 +12,7 @@ size = Vector2(100, 720)
 size = Vector2(1198, 88)
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_j6dve")
 
 [node name="Background" parent="." instance=ExtResource("1_jyc5b")]
 
@@ -45,3 +47,8 @@ shape = SubResource("RectangleShape2D_t00jn")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4"]
 position = Vector2(589, 692)
 shape = SubResource("RectangleShape2D_t00jn")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
